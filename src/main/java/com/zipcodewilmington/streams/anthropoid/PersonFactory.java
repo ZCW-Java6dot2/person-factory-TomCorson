@@ -33,6 +33,16 @@ public final class PersonFactory {
         Person randomPerson = new Person(name, isMale, personalId, birthDate, aliases);
         return randomPerson;
     }
+    public Person createRandomPersonWithFirstLetter(String letter) {
+        String name = letter + (RandomUtils.createString('a', 'e', 3));
+        String[] aliases = RandomUtils.createStrings('a', 'z', 3, 5);
+        boolean isMale = RandomUtils.createBoolean(50);
+        long personalId = System.nanoTime();
+        Date birthDate = RandomUtils.createDate(1950, 2010);
+
+        Person randomPerson = new Person(name, isMale, personalId, birthDate, aliases);
+        return randomPerson;
+    }
 
     /**
      * Section 8.8
@@ -44,7 +54,10 @@ public final class PersonFactory {
 
         return Collections.nCopies(listSize,createRandomPerson());
     }
+    public List<Person> createPersonListWithStartingChar(int listSize, String letter) {
 
+        return Collections.nCopies(listSize,createRandomPersonWithFirstLetter(letter));
+    }
 
     /**
      * @param arrayLength - number of Person objects to create
