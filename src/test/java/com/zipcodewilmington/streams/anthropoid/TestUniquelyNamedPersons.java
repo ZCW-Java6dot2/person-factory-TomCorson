@@ -77,6 +77,8 @@ public class TestUniquelyNamedPersons {
 
 
 
+    @org.jetbrains.annotations.NotNull
+    @Test
     private List<String> deriveUniqueNames(PersonWarehouse warehouse) {
         // derive unique names
         List<String> expectedList = new ArrayList<>();
